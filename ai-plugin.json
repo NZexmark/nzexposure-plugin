@@ -9,7 +9,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://nzexposure.co.nz/openapi.json"
+    "url": "https://nzexmark.github.io/nzexposure-plugin/openapi.json"
   },
   "logo_url": "https://nzexposure.co.nz/logo.png",
   "contact_email": "hello@nzexposure.co.nz",
