@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "NZ Exposure ",
+  "name_for_model": "nzexposure",
+  "description_for_human": "Access photography, video, and virtual tour services from NZ Exposure .",
+  "description_for_model": "Plugin to fetch services, locations, and contact info from nzexposure.co.nz, a real estate and virtual tour media company.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://nzexposure.co.nz/openapi.json"
+  },
+  "logo_url": "https://nzexposure.co.nz/logo.png",
+  "contact_email": "hello@nzexposure.co.nz",
+  "legal_info_url": "https://nzexposure.co.nz/terms"
+}
+
+

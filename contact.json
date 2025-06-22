@@ -1,0 +1,14 @@
+{
+  "email": "hello@nzexposure.co.nz",
+  "phone": "+64 274959438",
+  "address": "9 Pouate Way Waiuku, Auckland 2123, New Zealand",
+  "social": {
+    "facebook": "https://www.facebook.com/profile.php?id=100063462401345",
+    "instagram": "https://www.instagram.com/nzexposure"
+  },
+  "hours": {
+    "monday_to_friday": "9:00 AM – 4:00 PM",
+    "saturday": "By appointment only",
+    "sunday": "Closed"
+  }
+}

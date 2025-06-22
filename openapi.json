@@ -1,0 +1,180 @@
+openapi: 3.0.3
+info:
+  title: NZ Exposure Website API
+  version: 1.0.0
+  description: >
+    Public API for NZ Exposure (https://www.nzexposure.co.nz).  
+    Serves pages, services, blog posts, and contact form submissions.
+servers:
+  - url: https://www.nzexposure.co.nz
+tags:
+  - name: Public
+    description: General site pages
+  - name: Services
+    description: Service listings & details
+  - name: Blog
+    description: Blog post listings & details
+  - name: Contact
+    description: Contact form endpoint
+
+paths:
+  /:
+    get:
+      summary: Home page HTML
+      tags: [Public]
+      responses:
+        '200':
+          description: HTML content of the home page
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /about:
+    get:
+      summary: About page HTML
+      tags: [Public]
+      responses:
+        '200':
+          description: HTML content of the about page
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /services:
+    get:
+      summary: List all services
+      tags: [Services]
+      responses:
+        '200':
+          description: JSON array of services
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Service'
+
+  /services/{serviceId}:
+    get:
+      summary: Get a service by ID
+      tags: [Services]
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          description: Numeric ID of the service
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Service details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+        '404':
+          description: Service not found
+
+  /blog:
+    get:
+      summary: List all blog posts
+      tags: [Blog]
+      responses:
+        '200':
+          description: JSON array of blog posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BlogPost'
+
+  /blog/{slug}:
+    get:
+      summary: Get a blog post by slug
+      tags: [Blog]
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          description: URL slug of the post
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Blog post details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlogPost'
+        '404':
+          description: Post not found
+
+  /contact:
+    post:
+      summary: Submit contact form
+      tags: [Contact]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactForm'
+      responses:
+        '200':
+          description: Submission received
+        '400':
+          description: Invalid input data
+
+components:
+  schemas:
+    Service:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: string
+      required:
+        - id
+        - name
+        - description
+
+    BlogPost:
+      type: object
+      properties:
+        slug:
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        publishedAt:
+          type: string
+          format: date
+      required:
+        - slug
+        - title
+        - summary
+        - publishedAt
+
+    ContactForm:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        message:
+          type: string
+      required:
+        - name
+        - email
+        - message
