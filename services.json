@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "name": "Real Estate Photography and Media Services",
+      "description": "High-resolution photos for property listings, brochures, and online platforms.",
+      "category": "Photography"
+    },
+    {
+      "name": "Videography",
+      "description": "Professionally filmed and edited video walkthroughs suitable for social media and listings.",
+      "category": "Video"
+    },
+    {
+      "name": "Drone Imaging",
+      "description": "Licensed drone operators capturing stunning aerial shots and flyovers.",
+      "category": "Drone"
+    },
+    {
+      "name": "360° Virtual Tours",
+      "description": "Matterport-style interactive virtual walkthroughs viewable on mobile or desktop.",
+      "category": "Virtual Tour"
+    },
+    {
+      "name": "Floor Plans",
+      "description": "2D or 3D schematic floor plans with dimensions and layout views.",
+      "category": "Floor Plans"
+    }
+  ]
+}
